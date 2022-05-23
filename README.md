@@ -4,6 +4,7 @@
 Please follow instructions for the video tutorial you are watching.
 
 ############################################################
+
 VIDEO PART 2 Front end Design CSS - Bootstrap
 1. Install Dependencies:
 
@@ -14,6 +15,7 @@ npm i sf-font
 Go to Part2-Design Folder in this Repo
 
 2- Replace files in your React project with the files attached, then start server " npm run start "
+
 ############################################################
 
 ** THE FILES ATTACHED TO THIS REPO ARE FOR EDUCATIONAL PURPOSES ONLY **
