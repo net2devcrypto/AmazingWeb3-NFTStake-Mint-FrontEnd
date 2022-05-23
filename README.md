@@ -6,10 +6,13 @@ Please follow instructions for the video tutorial you are watching.
 ############################################################
 
 VIDEO PART 2 Front end Design CSS - Bootstrap
+
 1. Install Dependencies:
 
 npm i bootstrap@5.2.0-beta1
+
 npm i react-bootstrap
+
 npm i sf-font
 
 Go to Part2-Design Folder in this Repo
