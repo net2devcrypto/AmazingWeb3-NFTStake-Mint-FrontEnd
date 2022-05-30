@@ -30,6 +30,14 @@ Go to Part3-API-HTML-Fixed Folder in this Repo
 
 ############################################################
 
+VIDEO PART 4 Optimize React JS ABI JSON Import
+
+Go to Part4-ABI-Config-Import Folder in this Repo
+
+2- Stop React server, Replace files in your React project with the files attached, then start server " npm run start "
+
+############################################################
+
 ** THE FILES ATTACHED TO THIS REPO ARE FOR EDUCATIONAL PURPOSES ONLY **
 
 ** NOT FINANCIAL ADVISE **
