@@ -350,22 +350,22 @@ render() {
             <div className="ml-3 mr-3" style={{ display: "inline-grid", gridTemplateColumns: "repeat(4, 5fr)", columnGap: "20px" }}>
               {nftdata.map((result, i) => {
                 async function stakeit() {
-                  vaultcontract.methods.stake([item.tokenId]).send({ from: account });
+                  vaultcontract.methods.stake([result.token_id]).send({ from: account });
                 }
                 async function unstakeit() {
-                  vaultcontract.methods.unstake([item.tokenId]).send({ from: account });
+                  vaultcontract.methods.unstake([result.token_id]).send({ from: account });
                 }
                 return (
                   <div className="card nft-card mt-3" key={i} >
                     <div className="image-over">
-                      <img className="card-img-top" src={nftpng + item.tokenId + '.png'} alt="" />
+                      <img className="card-img-top" src={nftpng + result.token_id + '.png'} alt="" />
                     </div>
                     <div className="card-caption col-12 p-0">
                       <div className="card-body">
-                        <h5 className="mb-0">Net2Dev Collection NFT #{item.tokenId}</h5>
-                        <h5 className="mb-0 mt-2">Location Status<p style={{ color: "#39FF14", fontWeight: "bold", textShadow: "1px 1px 2px #000000" }}>{item.tokenId}</p></h5>
+                        <h5 className="mb-0">Net2Dev Collection NFT #{result.token_id}</h5>
+                        <h5 className="mb-0 mt-2">Location Status<p style={{ color: "#39FF14", fontWeight: "bold", textShadow: "1px 1px 2px #000000" }}>{result.owner_of}</p></h5>
                         <div className="card-bottom d-flex justify-content-between">
-                          <input key={i} type="hidden" id='stakeid' value={item.tokenId} />
+                          <input key={i} type="hidden" id='stakeid' value={result.token_id} />
                           <Button style={{ marginLeft: '2px', backgroundColor: "#ffffff10" }} onClick={stakeit}>Stake it</Button>
                           <Button style={{ marginLeft: '2px', backgroundColor: "#ffffff10" }} onClick={unstakeit}>Unstake it</Button>
                         </div>
