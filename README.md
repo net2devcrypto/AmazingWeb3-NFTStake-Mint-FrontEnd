@@ -38,6 +38,27 @@ Go to Part4-ABI-Config-Import Folder in this Repo
 
 ############################################################
 
+VIDEO PART 5 Advanced ReactJS Async Connect Function
+
+Stop React App, then install dependencies
+
+npm i web3modal
+
+npm i @walletconnect/web3-provider
+
+npm i walletlink
+
+npm i web3
+
+Fix Webpack limitation for Web3js:
+https://www.youtube.com/watch?v=IHrcFo1MX60
+
+then go to Part5-AdvJS-ConnectButton Folder in this Repo:
+Replace App.js in your React project with the file attached, 
+then start server " npm run start "
+
+############################################################
+
 ** THE FILES ATTACHED TO THIS REPO ARE FOR EDUCATIONAL PURPOSES ONLY **
 
 ** NOT FINANCIAL ADVISE **
