@@ -349,11 +349,6 @@ render() {
           <div className="row items px-3 pt-3">
             <div className="ml-3 mr-3" style={{ display: "inline-grid", gridTemplateColumns: "repeat(4, 5fr)", columnGap: "20px" }}>
               {nftdata.map((result, i) => {
-                var owner = "0x56a8adad1c9186002acf99138f5905caff5db55f";
-                  if (owner.indexOf(result.owner_of) !== -1) {
-                     let item = {
-                         tokenId: result.token_id,
-                      }
                 async function stakeit() {
                   vaultcontract.methods.stake([item.tokenId]).send({ from: account });
                 }
