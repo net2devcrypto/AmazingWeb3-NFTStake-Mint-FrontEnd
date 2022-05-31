@@ -34,7 +34,8 @@ VIDEO PART 4 Optimize React JS ABI JSON Import
 
 Go to Part4-ABI-Config-Import Folder in this Repo
 
-2- Stop React server, Replace files in your React project with the files attached, then start server " npm run start "
+2- Stop React server, Replace files in your React project with the files attached, 
+then start server " npm run start "
 
 ############################################################
 
