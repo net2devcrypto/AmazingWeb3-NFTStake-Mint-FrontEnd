@@ -65,12 +65,22 @@ VIDEO PART 6 Advanced NFT Mint App with Confirmation
 
 2- Stop React server.
 
-3- Follow Video Tutorial and update contract address in config.js
+3- Follow Video and update contract address in config.js
 accordingly.
 
-4- Replace app.js with the one provided in Part6 folder.
+4- Install Alchemy API module for React. Make sure you 
+have an Alchemy account and add the info required.
 
-5- Start server "npm run start"
+npm i @alch/alchemy-web3
+
+Watch Alchemy EIP-1559 integration video if you
+need to review the steps.
+Use Alchemy API to transact with EIP-1559:
+https://www.youtube.com/watch?v=7AvKzJMQlI8
+
+5- Replace app.js with the one provided in Part6 folder.
+
+6- Start server "npm run start"
 
 ############################################################
 
