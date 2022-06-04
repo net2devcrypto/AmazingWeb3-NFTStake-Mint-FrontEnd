@@ -21,7 +21,6 @@ Go to Part2-Design Folder in this Repo
 
 ############################################################
 
-
 VIDEO PART 3 HTML Debug and API AXIOS React Config
 
 Go to Part3-API-HTML-Fixed Folder in this Repo
@@ -57,6 +56,21 @@ https://www.youtube.com/watch?v=IHrcFo1MX60
 then go to Part5-AdvJS-ConnectButton Folder in this Repo:
 Replace App.js in your React project with the file attached, 
 then start server " npm run start "
+
+############################################################
+
+VIDEO PART 6 Advanced NFT Mint App with Confirmation
+
+1- Deploy NFT SmartContract Attached in Part6 Folder
+
+2- Stop React server.
+
+3- Follow Video Tutorial and update contract address in config.js
+accordingly.
+
+4- Replace app.js with the one provided in Part6 folder.
+
+5- Start server "npm run start"
 
 ############################################################
 
