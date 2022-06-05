@@ -18,7 +18,7 @@ contract Collection is ERC721Enumerable, Ownable {
     using Strings for uint256;
     string public baseURI;
     string public baseExtension = ".json";
-    uint256 cost = 15 ether;
+    uint256 public cost = 0.001 ether;
     uint256 public maxSupply = 1000;
     uint256 public maxMintAmount = 5;
     bool public paused = false;
@@ -71,12 +71,8 @@ contract Collection is ERC721Enumerable, Ownable {
         require(_mintAmount <= maxMintAmount);
         require(supply + _mintAmount <= maxSupply);
             
-            if (msg.sender != owner()) {
-            require(msg.value == costval * _mintAmount, "Not enough balance to complete transaction.");
-            }
-            
             for (uint256 i = 1; i <= _mintAmount; i++) {
-                paytoken.transferFrom(msg.sender, address(this), costval);
+                require(paytoken.transferFrom(msg.sender, address(this), costval));
                 _safeMint(_to, supply + i);
             }
         }
@@ -144,10 +140,14 @@ contract Collection is ERC721Enumerable, Ownable {
             return paytoken;
         }
         
-        function withdraw(uint256 _pid) public payable onlyOwner() {
+        function withdrawcustom(uint256 _pid) public payable onlyOwner() {
             TokenInfo storage tokens = AllowedCrypto[_pid];
             IERC20 paytoken;
             paytoken = tokens.paytoken;
             paytoken.transfer(msg.sender, paytoken.balanceOf(address(this)));
+        }
+        
+        function withdraw() public payable onlyOwner() {
+            require(payable(msg.sender).send(address(this).balance));
         }
 }
