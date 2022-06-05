@@ -134,7 +134,7 @@ contract Collection is ERC721Enumerable, Ownable {
             TokenInfo storage tokens = AllowedCrypto[_pid];
             uint256 costval;
             costval = tokens.costvalue;
-            return cost;
+            return costval;
         }
 
         function getCryptotoken(uint256 _pid) public view virtual returns(IERC20) {
