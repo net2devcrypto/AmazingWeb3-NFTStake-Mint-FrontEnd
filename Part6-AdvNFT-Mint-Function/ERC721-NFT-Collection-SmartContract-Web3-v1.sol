@@ -132,8 +132,8 @@ contract Collection is ERC721Enumerable, Ownable {
 
         function getNFTCost(uint256 _pid) public view virtual returns(uint256) {
             TokenInfo storage tokens = AllowedCrypto[_pid];
-            uint256 cost;
-            cost = tokens.costvalue;
+            uint256 costval;
+            costval = tokens.costvalue;
             return cost;
         }
 
