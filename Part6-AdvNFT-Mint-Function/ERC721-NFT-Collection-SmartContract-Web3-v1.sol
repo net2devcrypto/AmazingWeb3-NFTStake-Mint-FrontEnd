@@ -63,8 +63,8 @@ contract Collection is ERC721Enumerable, Ownable {
         TokenInfo storage tokens = AllowedCrypto[_pid];
         IERC20 paytoken;
         paytoken = tokens.paytoken;
-        uint256 cost;
-        cost = tokens.costvalue;
+        uint256 costval;
+        costval = tokens.costvalue;
         uint256 supply = totalSupply();
         require(!paused);
         require(_mintAmount > 0);
@@ -72,11 +72,11 @@ contract Collection is ERC721Enumerable, Ownable {
         require(supply + _mintAmount <= maxSupply);
             
             if (msg.sender != owner()) {
-            require(msg.value == cost * _mintAmount, "Not enough balance to complete transaction.");
+            require(msg.value == costval * _mintAmount, "Not enough balance to complete transaction.");
             }
             
             for (uint256 i = 1; i <= _mintAmount; i++) {
-                paytoken.transferFrom(msg.sender, address(this), cost);
+                paytoken.transferFrom(msg.sender, address(this), costval);
                 _safeMint(_to, supply + i);
             }
         }
