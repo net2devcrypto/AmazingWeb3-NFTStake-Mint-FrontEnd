@@ -1,6 +1,13 @@
 # AmazingWeb3-NFTStake-Mint-FrontEnd
 🤩🥳This repo contains all the files to follow along and implement the Amazing Web3 Front End Design using React + CSS and Bootstrap. 
 
+
+** THE FILES ATTACHED TO THIS REPO ARE FOR EDUCATIONAL PURPOSES ONLY **
+
+** NOT FINANCIAL ADVISE **
+
+** USE IT AT YOUR OWN RISK** **I'M NOT RESPONSIBLE FOR ANY USE, ISSUES ETC.. **
+
 Please follow instructions for the video tutorial you are watching.
 
 ############################################################
@@ -79,6 +86,36 @@ Use Alchemy API to transact with EIP-1559:
 https://www.youtube.com/watch?v=7AvKzJMQlI8
 
 5- Replace app.js with the one provided in Part6 folder.
+
+6- Start server "npm run start"
+
+############################################################
+
+VIDEO PART 7 Final Video UseState and UseEffect - ReactHooks
+
+1- Deploy smart contracts located in:
+
+https://github.com/net2devcrypto/N2D-Contracts
+
+2- Stop React server.
+
+3- Replace public folder in react with the one in the
+part7 folder in this repo.
+
+4- Replace the files on the "src" folder in your React project with 
+the ones in part7 folder in this repo.
+
+5- Update config.js with all your particular information:
+
+- Your Staking Smart Contract Address
+- Your NFT Collection Smart Contract Address
+- Your Polygonscan API Key
+- Your Moralis API Key
+- Your Alchemy API Key
+
+6- Replace any other information regarding the mainnet you are using
+accordingly. In App.js and nft.js replace infura provider ID's for
+web3Modal provider. Update to the mainnet you are using (if applicable).
 
 6- Start server "npm run start"
 
