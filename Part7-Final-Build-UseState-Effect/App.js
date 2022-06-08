@@ -149,6 +149,88 @@ render() {
     return processArray([rwdArray]);
   }
 
+  async function verify() {
+    var getstakednfts = await vaultcontract.methods.tokensOfOwner(account).call();
+    document.getElementById('yournfts').textContent = getstakednfts;
+    var getbalance = Number(await vaultcontract.methods.balanceOf(account).call());
+    document.getElementById('stakedbalance').textContent = getbalance;
+  }
+
+  async function enable() {
+    contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({ from: account });
+  }
+  async function rewardinfo() {
+    var rawnfts = await vaultcontract.methods.tokensOfOwner(account).call();
+    const arraynft = Array.from(rawnfts.map(Number));
+    const tokenid = arraynft.filter(Number);
+    var rwdArray = [];
+    tokenid.forEach(async (id) => {
+      var rawearn = await vaultcontract.methods.earningInfo(account, [id]).call();
+      var array = Array.from(rawearn.map(Number));
+      array.forEach(async (item) => {
+        var earned = String(item).split(",")[0];
+        var earnedrwd = Web3.utils.fromWei(earned);
+        var rewardx = Number(earnedrwd).toFixed(2);
+        var numrwd = Number(rewardx);
+        rwdArray.push(numrwd)
+      });
+    });
+    function delay() {
+      return new Promise(resolve => setTimeout(resolve, 300));
+    }
+    async function delayedLog(item) {
+      await delay();
+      var sum = item.reduce((a, b) => a + b, 0);
+      var formatsum = Number(sum).toFixed(2);
+      document.getElementById('earned').textContent = formatsum;
+    }
+    async function processArray(rwdArray) {
+      for (const item of rwdArray) {
+        await delayedLog(item);
+      }
+    }
+    return processArray([rwdArray]);
+  }
+  async function claimit() {
+    var rawnfts = await vaultcontract.methods.tokensOfOwner(account).call();
+    const arraynft = Array.from(rawnfts.map(Number));
+    const tokenid = arraynft.filter(Number);
+    await Web3Alc.eth.getMaxPriorityFeePerGas().then((tip) => {
+      Web3Alc.eth.getBlock('pending').then((block) => {
+        var baseFee = Number(block.baseFeePerGas);
+        var maxPriority = Number(tip);
+        var maxFee = maxPriority + baseFee;
+        tokenid.forEach(async (id) => {
+          await vaultcontract.methods.claim([id])
+            .send({
+              from: account,
+              maxFeePerGas: maxFee,
+              maxPriorityFeePerGas: maxPriority
+            })
+        })
+      });
+    })
+  }
+  async function unstakeall() {
+    var rawnfts = await vaultcontract.methods.tokensOfOwner(account).call();
+    const arraynft = Array.from(rawnfts.map(Number));
+    const tokenid = arraynft.filter(Number);
+    await Web3Alc.eth.getMaxPriorityFeePerGas().then((tip) => {
+      Web3Alc.eth.getBlock('pending').then((block) => {
+        var baseFee = Number(block.baseFeePerGas);
+        var maxPriority = Number(tip);
+        var maxFee = maxPriority + baseFee;
+        tokenid.forEach(async (id) => {
+          await vaultcontract.methods.unstake([id])
+            .send({
+              from: account,
+              maxFeePerGas: maxFee,
+              maxPriorityFeePerGas: maxPriority
+            })
+        })
+      });
+    })
+  }
   async function mintnative() {
     var _mintAmount = Number(outvalue);
     var mintRate = Number(await contract.methods.cost().call());
@@ -307,13 +389,13 @@ const refreshPage = ()=>{
             <form  style={{ fontFamily: "SF Pro Display" }} >
               <h2 style={{ borderRadius: '14px', fontWeight: "300", fontSize: "25px" }}>N2DR NFT Staking Vault </h2>
               <h6 style={{ fontWeight: "300" }}>First time staking?</h6>
-              <Button className="btn" style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }} >Authorize Your Wallet</Button>
+              <Button className="btn" onClick={enable} style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }} >Authorize Your Wallet</Button>
               <div className="row px-3">
                 <div className="col">
                   <form class="stakingrewards" style={{ borderRadius: "25px", boxShadow: "1px 1px 15px #ffffff" }}>
                     <h5 style={{ color: "#FFFFFF", fontWeight: '300' }}>Your Vault Activity</h5>
                     <h6 style={{ color: "#FFFFFF" }}>Verify Staked Amount</h6>
-                    <Button style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }} >Verify</Button>
+                    <Button onClick={verify} style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }} >Verify</Button>
                     <table className='table mt-3 mb-5 px-3 table-dark'>
                       <tr>
                         <td style={{ fontSize: "19px" }}>Your Staked NFTs:
@@ -327,7 +409,7 @@ const refreshPage = ()=>{
                       </tr>
                       <tr>
                         <td style={{ fontSize: "19px" }}>Unstake All Staked NFTs
-                          <Button className='mb-3' style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }}>Unstake All</Button>
+                          <Button onClick={unstakeall} className='mb-3' style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }}>Unstake All</Button>
                         </td>
                       </tr>
                     </table>
@@ -337,11 +419,11 @@ const refreshPage = ()=>{
                   <div className="col">
                     <form className='stakingrewards' style={{ borderRadius: "25px", boxShadow: "1px 1px 15px #ffffff", fontFamily: "SF Pro Display" }}>
                       <h5 style={{ color: "#FFFFFF", fontWeight: '300' }}> Staking Rewards</h5>
-                      <Button style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }} >Earned N2D Rewards</Button>
+                      <Button onClick={rewardinfo} style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }} >Earned N2D Rewards</Button>
                       <div id='earned' style={{ color: "#39FF14", marginTop: "5px", fontSize: '25px', fontWeight: '500', textShadow: "1px 1px 2px #000000" }}><p style={{ fontSize: "20px" }}>Earned Tokens</p></div>
                       <div className='col-12 mt-2'>
                         <div style={{ color: 'white' }}>Claim Rewards</div>
-                        <Button style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }} className="mb-2">Claim</Button>
+                        <Button onClick={claimit} style={{ backgroundColor: "#ffffff10", boxShadow: "1px 1px 5px #000000" }} className="mb-2">Claim</Button>
                       </div>
                     </form>
                   </div>
@@ -435,3 +517,4 @@ const refreshPage = ()=>{
   }
 }
 export default App;
+
