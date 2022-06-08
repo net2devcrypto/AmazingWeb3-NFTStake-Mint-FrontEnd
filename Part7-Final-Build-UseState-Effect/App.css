@@ -1,0 +1,239 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.nftapp {
+  background: radial-gradient(circle at 50% 50%, #5e99ac, #508aa3, #35678f, #1f457a, #173771);
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.connectbutton {
+  background: #00000010;
+  box-shadow: 0px 1px 10px #17b2ff;
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 5px 12px;
+  font-size: large;
+  font-weight: 200;
+}
+
+.navbarfont {
+  font-family: "SF Pro Display";
+  font-weight: 300;
+}
+
+.nftminter {
+    background: radial-gradient(circle at 50% 50%, #090f11, #0c1519, #101e2b, #0f223c, #0e2144);
+    font-family: "SF Pro Display";
+    font-weight: 300;
+    color: white;
+    box-shadow: 0 0 1px 1px #17b2ff;
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    border-radius: 20px !important;
+    -webkit-border: 20px !important;
+    -moz-border: 20px !important;
+    border: 20px !important;
+}
+
+.nftstaker {
+  background: radial-gradient(circle at 50% 50%, #090f11, #0c1519, #101e2b, #0f223c, #0e2144);
+  font-family: "SF Pro Display";
+  font-weight: 300;
+  color: white;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 1px 1px #17b2ff;
+  -webkit-border-radius: 20px !important;
+  -moz-border-radius: 20px !important;
+  border-radius: 20px !important;
+  -webkit-border: 20px !important;
+  -moz-border: 20px !important;
+  border: 20px !important;
+}
+
+.stakingrewards {
+    font-family: "SF Pro Display";
+    font-weight: 300;
+    box-shadow: 1px 1px 15px #ffffff;
+    background: radial-gradient(circle at 50% 50%, #000000, #050604, #0a0c08, #0f130b, #14190f, #191f13, #1e2517, #232b1b, #28321e, #2d3822, #323e26);
+}
+
+.modal-style1 {
+  background: radial-gradient(circle at 50% 50%, #090f11, #0c1519, #101e2b, #0f223c, #0e2144);
+  font-family: "SF Pro Display";
+  font-weight: 300;
+  color: white;
+  box-shadow: 0 0 1px 1px #17b2ff;
+  -webkit-border-radius: 20px !important;
+  -moz-border-radius: 20px !important;
+  border-radius: 20px !important;
+  -webkit-border: 20px !important;
+  -moz-border: 20px !important;
+  border: 20px !important;
+}
+
+.container-style {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: stretch
+}
+
+@keyframes glow2 {
+  from {
+    box-shadow: 0 0 4px -1px #f4dc76;
+  }
+  to {
+    box-shadow: 0 0 10px 7px #ffb300;
+  }
+}
+
+.stakegoldeffect {
+    font-family: "SF Pro Display";
+    font-weight: 300;
+    animation: glow2 3s infinite alternate;
+    background: linear-gradient(
+      to bottom,
+      rgb(1, 53, 130),
+      rgba(255, 0, 0, 0)
+    )
+}
+
+.errorsearch {
+  background: black;
+}
+
+.nft-card {
+  background-image: linear-gradient(125.83deg, rgb(30, 42, 34) 0%, rgb(17, 3, 141) 80.09%);
+  font-family: "SF Pro Display";
+  color: white;
+  box-shadow: 1px 1px 15px #000000;
+}
+
+.navbarglow {
+  box-shadow: 0px 8px 15px #17b2ff;
+}
+.farm {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
+  font-family: "SF Pro Display";
+  font-weight: 300;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 1px 1px #ffffff;
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    border-radius: 20px !important;
+    -webkit-border: 20px !important;
+    -moz-border: 20px !important;
+    border: 20px !important;
+}
+.farmcard {
+color: rgb(255, 255, 255);
+font-family: "SF Pro Display";
+font-weight: 300;
+background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+}
+.n2dtitlestyle {
+  color: #ffffff;
+  font-family: "SF Pro Display";
+  font-weight: 300;
+}
+
+.nftportal {
+  background: #161616;
+}
+
+.stakedcard {
+  background: linear-gradient(270deg, #0c0c0c, #f21d1d);
+  background-size: 400% 400%;
+    -webkit-animation: AnimationStake 14s ease infinite;
+    -moz-animation: AnimationStake 14s ease infinite;
+    animation: AnimationStake 14s ease infinite;
+    font-family: "SF Pro Display";
+    color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 11px #FFD700;
+  }
+
+@-webkit-keyframes AnimationStake {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationStake {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationStake {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
