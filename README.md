@@ -117,7 +117,7 @@ the ones in part7 folder in this repo.
 accordingly. In App.js and nft.js replace infura provider ID's for
 web3Modal provider. Update to the mainnet you are using (if applicable).
 
-6- Start server "npm run start"
+7- Start server "npm run start"
 
 ############################################################
 
